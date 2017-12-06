@@ -2,7 +2,6 @@ package com.gatete.mathmysterybox;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,14 +11,9 @@ import android.widget.ImageView;
 
 public class AnswersActivity extends AppCompatActivity implements AnswerDialog.AnswerDialogListener {
 
-    private int counter = 4, color = 0;
+    private int counter = 4;
     private String answer[] = { null, null, null, null };
     private ImageView imgBrain, imgHearth, imgBody, imgDNA;
-
-    public void setActivityBackgroundColor(int color) {
-        View view = this.getWindow().getDecorView();
-        view.setBackgroundColor(color);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,30 +25,25 @@ public class AnswersActivity extends AppCompatActivity implements AnswerDialog.A
 
         String team = getIntent().getStringExtra("team");
 
-        if(team.equalsIgnoreCase("azul"))
+        if(team.equalsIgnoreCase("verde"))
         {
-            color = getResources().getColor(R.color.azulito);
             answer[0] = "Imaginacion";
             answer[1] = "Sueño";
             answer[2] = "222";
             answer[3] = "TGTAGCATAT";
         } else if(team.equalsIgnoreCase("rojo"))
         {
-            color = getResources().getColor(R.color.rojito);
             answer[0] = "Neurona";
             answer[1] = "Amor";
             answer[2] = "612";
             answer[3] = "TGTAGCATAT";
-        } else if(team.equalsIgnoreCase("verde"))
+        } else if(team.equalsIgnoreCase("azul"))
         {
-            color = getResources().getColor(R.color.verdecito);
             answer[0] = "Idea";
             answer[1] = "Vida";
             answer[2] = "422";
             answer[3] = "TGTAGCATAT";
         }
-
-        setActivityBackgroundColor(color);
 
         setContentView(R.layout.activity_answers);
 
@@ -124,7 +113,7 @@ public class AnswersActivity extends AppCompatActivity implements AnswerDialog.A
 
         if(counter == 0) {
             Intent intent = new Intent(AnswersActivity.this, LabActivity.class);
-            intent.putExtra("color", color);
+            intent.putExtra("color", getResources().getColor(R.color.button));
             startActivity(intent);
             finish();
         }

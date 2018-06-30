@@ -1,0 +1,20 @@
+{
+  "name": "alien",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron main.js",
+    "start": "electromon main.js",
+    "build": "electron-packager . --overwrite --asar"
+  },
+  "author": "CosasDePuma",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "electron": "^2.0.2"
+  },
+  "devDependencies": {
+    "electromon": "^1.0.10",
+    "electron-packager": "^12.1.0"
+  }
+}

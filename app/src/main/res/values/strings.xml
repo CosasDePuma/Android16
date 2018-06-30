@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MathMysteryBox</string>
+    <string name="app_name">MMB: Domus</string>
     <string name="title_activity_team">TeamActivity</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>

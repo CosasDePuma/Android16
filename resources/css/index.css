@@ -1,0 +1,166 @@
+/* https://codepen.io/remsrob/pen/ZRyqNx?editors=1100 */
+
+@font-face {
+  font-family: 'Terminal';
+  src: url('../font/ShareTechMono-Regular.ttf') format('ttf');
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  color: #db0e15; /* Pintamos el texto de rojo */
+  font-family: 'Terminal', monospace; /* Agregamos la fuente estilo terminal */
+  font-size: 26px; /* Aumentamos el tamaño de la fuente */
+  text-shadow: 0 0 5px rgba(219, 14, 21, .8); /* Incluímos una sombra roja al texto */
+  background: url('../img/bg.png') #000; /* Añadimos ese efecto de pantalla vieja */
+  /* Lo siguiente ni idea de qué hace (aún) */
+  position: relative;
+  height: 100vh;
+  /* font-weight: 300; /* Modificamos el grueso de la fuente  */
+}
+
+/* Centrar el texto verticalmente (gracias a unos duendes mágicos) */ 
+.container {
+  left: 0;
+  right: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+.title {
+  text-transform: uppercase; /* Ponemos el título en mayúsculas */
+  text-align: center; /* Centramos el título horizontalmente en la pantalla */
+  font-size: 1em; /* Cambiamos el tamaño del texto */
+  /* font-weight: 300; /* Modificamos el grueso del título */
+}
+
+/* Ponemos una barras rojas en el título */
+.title::after,
+.title::before {
+  display: inline-block; /* Insertamos la imagen en la linea de texto */
+  background: url('../img/top_outer.png'); /* Ruta de la imagen */
+  content: ''; /* Que la imagen no tenga texto */
+  width: 144px; /* Ancho de las barras */
+  height: 20px; /* Alto de las barras */
+  margin: 0 20px; /* Agregamos cierta separación del título */
+}
+
+.box--outer {
+  border-image: url('../img/box-outer.png') 17 11 17 round; /* Definimos la imagen del borde */
+  border-top: #000 18px solid; /* Colocamos borde en la parte superior */
+  border-bottom: #000 18px solid; /* Colocamos borde en la parte inferior */
+  
+  position: relative; /* Posición del elemento relativa dentro del padre */
+  width: 90%; /* Que el elemento ocupe casi todo el espacio, pero no todo */
+  margin: 0 auto; /* Centramos el elemento */
+  max-width: 1080px; /* Definimos la anchura máxima del elemento */
+}
+
+.box {
+  display: inline-block;
+  text-transform: uppercase; /* Transformamos el texto del elemento a mayúsculas */
+  text-align: center; /* Centramos horizontalmente el texto */
+  width: 100%; /* Que el elemento ocupe todo el espacio diponible */
+  max-width: 1080px; /* Definimos la anchura máxima del elemento */
+}
+
+/* Otros duendes que permiten que el texto quede centrado/justificado */
+.box--inner {
+  display: inline-block;
+  width: calc(100% - 105px);
+  max-width: 1010px;
+}
+
+.box--inner::after,
+.box--inner::before {
+  display: inline-block; /* Insertamos la imagen en la linea de texto */
+  background: url('../img/box-inner.png') no-repeat center; /* Ruta de la imagen */
+  content: ''; /* Que la imagen no tenga texto */
+  width: 100%; /* Ancho del elemento */
+  height: 27px; /* Alto del elemento */
+  max-width: 642px; /* Definimos un tamaño máximo */
+}
+
+/* Duendecillos mágicos, again, que expanden y ponen bonitos los elementos */
+.content {
+  position: relative;
+  display: block;
+  max-height: 600px;
+  min-height: 400px;
+  height: 100%
+}
+
+/* Estos duendecillos me encantan, ¡y sí se lo que hacen! */
+.content .holder {
+  left: 0; /* Sin espaciado a la izquierda */
+  right: 0; /* Sin espaciado superior */
+  position: absolute; /* Posición absoluta en la página */
+  top: 50%; /* Movemos el elemento a mitad de página */
+  /* Movemos el contenido la mitad de su tamaño hacia arriba */
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+
+.col.col__center,
+.col.col__left {
+  display: inline-block /* Posicionamos texto y formularios en la misma línea */
+}
+
+.col.col__left {
+  width: 150px /* Definimos un tamaño para las etiquetas */
+}
+
+/*
+.col.col__center {
+  width: 350px;
+  margin-right: 130px
+}
+*/
+
+#submit {
+  border: none; /* Quitamos el borde */
+  margin: 20px; /* Ponemos repecto a otros elementos*/
+  padding: 10px 50px; /* Definimos el tamaño del botón con esto */
+  width: auto; /* Ajustamos el tamaño del botón al del texto */
+  overflow: visible; /* Mostramos el texto que sobresalga del botón */
+  outline: 0; /* Quitamos líneas exteriores */
+  cursor: pointer; /* Cambiamos el cursor a una mano */
+  background: rgba(219, 14, 21, .2);
+  color: inherit; /* Color del padre para el texto */
+  font: inherit; /* Fuente del padre para el texto */
+  line-height: normal; /* Tamaño normal para el texto */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  /* Magias y meigas varias */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* No me da la cabeza para leer esto ahora */
+#email,
+#login,
+#password {
+  border: 2px solid #d7001e;
+  margin: 10px 0;
+  padding: 10px;
+  width: auto;
+  max-width: 100%;
+  overflow: visible;
+  outline: 0;
+  background: 0 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal
+}
